@@ -1,0 +1,260 @@
+:root {
+    --royal-blue: #4169E1;
+    --dark-blue: #1a237e;
+    --black: #121212;
+    --light-black: #282828;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, var(--dark-blue), var(--black));
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo {
+    color: var(--royal-blue);
+}
+
+.logo h1 {
+    font-size: 42px;
+    margin-bottom: 5px;
+}
+
+.logo p {
+    font-size: 18px;
+}
+
+.login-content {
+    background-color: var(--light-black);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.login-content h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 25px;
+    border: 1px solid var(--text-secondary);
+    background: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.social-btn i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.social-btn:hover {
+    border-color: var(--royal-blue);
+    color: var(--royal-blue);
+}
+
+.divider {
+    text-align: center;
+    position: relative;
+    margin: 30px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background-color: var(--text-secondary);
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.divider span {
+    background-color: var(--light-black);
+    padding: 0 10px;
+    color: var(--text-secondary);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--black);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--royal-blue);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background-color: var(--royal-blue);
+    color: var(--text-primary);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: var(--dark-blue);
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    color: var(--text-primary);
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.forgot-password:hover {
+    color: var(--royal-blue);
+}
+
+.signup-link {
+    text-align: center;
+    border-top: 1px solid var(--text-secondary);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.signup-link a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    color: var(--royal-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 10px;
+    }
+
+    .login-content {
+        padding: 20px;
+    }
+
+    .social-btn {
+        font-size: 14px;
+    }
+}
+/* Add these at the end of your existing CSS */
+.slide-transition {
+    animation: slideUp 0.8s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Add these at the end of your existing CSS */
+.slide-transition {
+    animation: slideUp 0.8s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.login-container {
+    transform: translateY(0);
+}

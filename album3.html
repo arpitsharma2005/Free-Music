@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FM - Album Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .album-content {
+            margin-left: 40px;
+            min-height: calc(100vh - 90px);
+            background: var(--black);
+        }
+
+        .album-hero {
+            position: relative;
+            height: 350px;
+            padding: 24px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .album-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('1.webp');
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px);
+            transform: scale(1.1);
+            z-index: 1;
+        }
+
+        .album-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            z-index: 2;
+        }
+
+        .album-content-wrapper {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            gap: 24px;
+            align-items: flex-end;
+            width: 100%;
+        }
+
+        .album-cover-large {
+            width: 232px;
+            height: 232px;
+            box-shadow: 0 4px 60px rgba(0,0,0,0.5);
+            border-radius: 4px;
+        }
+
+        .album-details {
+            flex: 1;
+        }
+
+        .album-title {
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .album-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-primary);
+        }
+
+        .artist-profile {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .artist-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        .album-actions {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .play-button {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: var(--royal-blue);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-button {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        .tracks-section {
+            padding: 0 24px;
+        }
+
+        .track-row {
+            display: grid;
+            grid-template-columns: 48px 1fr auto;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .track-row:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--text-primary);
+        }
+
+        .track-number {
+            text-align: center;
+        }
+
+        .track-title {
+            color: inherit;
+        }
+
+        .track-duration {
+            margin-left: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h1>FM</h1>
+                <p>Free Music</p>
+            </div>
+            
+            <div class="nav-menu">
+                <div class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-book"></i>
+                    <span>Library</span>
+                </div>
+            </div>
+
+            <div class="playlists">
+                <h2>PLAYLISTS</h2>
+                <div class="playlist-item">
+                    <i class="fas fa-plus"></i>
+                    <span>Create Playlist</span>
+                </div>
+                <div class="playlist-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Liked Songs</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Album Content -->
+         
+        <div class="album-content">
+            <div class="album-hero">
+                <div class="album-background"></div>
+                <div class="album-overlay"></div>
+                <div class="album-content-wrapper">
+                    <img src="3.jpg" alt="Album Cover" class="album-cover-large">
+                    <div class="album-details">
+                        <h1 class="album-title">Hindi</h1>
+                        <div class="album-meta">
+                            <div class="artist-profile">
+                                <img src="2.jpg" alt="Artist" class="artist-avatar">
+                                <span class="artist-name">Arijit Singh</span>
+                            </div>
+                            <span>•</span>
+                            <span>2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-actions">
+                <button class="play-button">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="action-button">
+                    <i class="far fa-heart"></i>
+                </button>
+                <button class="action-button">
+                    <i class="fas fa-ellipsis-h"></i>
+                </button>
+            </div>
+
+            <div class="tracks-section">
+                <!-- Add your tracks here -->
+                <div class="track-row">
+                    <div class="track-number">1</div>
+                    <div class="track-title">Track Name</div>
+                    <div class="track-duration">3:30</div>
+                </div>
+                <!-- Add more tracks as needed -->
+            </div>
+        </div>
+        
+
+        <!-- Player Bar -->
+        <div class="player-bar">
+            <div class="now-playing">
+                <img src="1.webp" alt="Current Track" class="current-track-img">
+                <div class="track-info">
+                    <h4>Currently Playing</h4>
+                    <p>Karan Aujla</p>
+                </div>
+                <div class="track-actions">
+                    <i class="far fa-heart"></i>
+                    <i class="fas fa-expand-alt"></i>
+                </div>
+            </div>
+
+            <div class="player-controls">
+                <div class="control-buttons">
+                    <button><i class="fas fa-random"></i></button>
+                    <button><i class="fas fa-step-backward"></i></button>
+                    <button class="play-btn"><i class="fas fa-play"></i></button>
+                    <button><i class="fas fa-step-forward"></i></button>
+                    <button><i class="fas fa-redo"></i></button>
+                </div>
+                <div class="progress-bar">
+                    <span class="current-time">0:00</span>
+                    <div class="progress">
+                        <div class="progress-filled"></div>
+                    </div>
+                    <span class="total-time">3:30</span>
+                </div>
+            </div>
+
+            <div class="volume-controls">
+                <i class="fas fa-volume-up"></i>
+                <div class="volume-bar">
+                    <div class="volume-filled"></div>
+                </div>
+                <i class="fas fa-list"></i>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Player control variables
+        let isPlaying = false;
+        let currentVolume = 70;
+        let isMuted = false;
+        let isShuffleOn = false;
+        let isRepeatOn = false;
+        let currentTrackIndex = 0;
+    
+        // Get DOM elements
+        const mainPlayButton = document.querySelector('.play-button');
+        const playerPlayButton = document.querySelector('.play-btn');
+        const volumeBtn = document.querySelector('.fa-volume-up');
+        const volumeBar = document.querySelector('.volume-bar');
+        const progressBar = document.querySelector('.progress');
+        const shuffleBtn = document.querySelector('.fa-random').parentElement;
+        const repeatBtn = document.querySelector('.fa-redo').parentElement;
+        const prevBtn = document.querySelector('.fa-step-backward').parentElement;
+        const nextBtn = document.querySelector('.fa-step-forward').parentElement;
+        const likeButtons = document.querySelectorAll('.fa-heart');
+        const trackRows = document.querySelectorAll('.track-row');
+    
+        // Sample tracks data - replace with your actual tracks
+        const tracks = [
+            { title: "Track 1", duration: "3:30", artist: "Karan Aujla" },
+            { title: "Track 2", duration: "4:15", artist: "Karan Aujla" },
+            // Add more tracks as needed
+        ];
+    
+        // Main play button functionality
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            const icon = isPlaying ? 'fa-pause' : 'fa-play';
+            mainPlayButton.innerHTML = `<i class="fas ${icon}"></i>`;
+            playerPlayButton.innerHTML = `<i class="fas ${icon}"></i>`;
+            
+            if (isPlaying) {
+                // Add animation to album cover
+                document.querySelector('.album-cover-large').style.animation = 'rotate 20s linear infinite';
+            } else {
+                document.querySelector('.album-cover-large').style.animation = 'none';
+            }
+        }
+    
+        mainPlayButton.addEventListener('click', togglePlay);
+        playerPlayButton.addEventListener('click', togglePlay);
+    
+        // Volume control
+        volumeBtn.addEventListener('click', function() {
+            isMuted = !isMuted;
+            this.className = `fas ${isMuted ? 'fa-volume-mute' : 'fa-volume-up'}`;
+            document.querySelector('.volume-filled').style.width = isMuted ? '0%' : `${currentVolume}%`;
+        });
+    
+        volumeBar.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            currentVolume = Math.floor(percent * 100);
+            document.querySelector('.volume-filled').style.width = `${currentVolume}%`;
+            
+            // Update volume icon based on level
+            if (currentVolume === 0) {
+                volumeBtn.className = 'fas fa-volume-mute';
+            } else if (currentVolume < 50) {
+                volumeBtn.className = 'fas fa-volume-down';
+            } else {
+                volumeBtn.className = 'fas fa-volume-up';
+            }
+        });
+    
+        // Progress bar
+        progressBar.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            document.querySelector('.progress-filled').style.width = `${percent * 100}%`;
+            
+            const totalSeconds = 210; // Example: 3:30 in seconds
+            const currentSeconds = Math.floor(percent * totalSeconds);
+            document.querySelector('.current-time').textContent = formatTime(currentSeconds);
+        });
+    
+        // Shuffle button
+        shuffleBtn.addEventListener('click', function() {
+            isShuffleOn = !isShuffleOn;
+            this.style.color = isShuffleOn ? 'var(--royal-blue)' : 'var(--text-primary)';
+        });
+    
+        // Repeat button
+        repeatBtn.addEventListener('click', function() {
+            isRepeatOn = !isRepeatOn;
+            this.style.color = isRepeatOn ? 'var(--royal-blue)' : 'var(--text-primary)';
+        });
+    
+        // Previous/Next buttons
+        prevBtn.addEventListener('click', function() {
+            currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+            updateTrackInfo(tracks[currentTrackIndex]);
+        });
+    
+        nextBtn.addEventListener('click', function() {
+            currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+            updateTrackInfo(tracks[currentTrackIndex]);
+        });
+    
+        // Like buttons
+        likeButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('far');
+                this.classList.toggle('fas');
+                if (this.classList.contains('fas')) {
+                    this.style.color = '#1ed760'; // Spotify green color
+                } else {
+                    this.style.color = 'var(--text-secondary)';
+                }
+            });
+        });
+    
+        // Track rows
+        trackRows.forEach((row, index) => {
+            row.addEventListener('click', function() {
+                currentTrackIndex = index;
+                updateTrackInfo(tracks[index]);
+                if (!isPlaying) {
+                    togglePlay();
+                }
+            });
+    
+            // Add hover effect to show play icon
+            row.addEventListener('mouseenter', function() {
+                const numberDiv = this.querySelector('.track-number');
+                numberDiv.innerHTML = '<i class="fas fa-play"></i>';
+            });
+    
+            row.addEventListener('mouseleave', function() {
+                const numberDiv = this.querySelector('.track-number');
+                numberDiv.textContent = index + 1;
+            });
+        });
+    
+        // Helper functions
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+    
+        function updateTrackInfo(track) {
+            const nowPlayingTitle = document.querySelector('.now-playing .track-info h4');
+            const nowPlayingArtist = document.querySelector('.now-playing .track-info p');
+            
+            nowPlayingTitle.textContent = track.title;
+            nowPlayingArtist.textContent = track.artist;
+    
+            // Reset progress bar
+            document.querySelector('.progress-filled').style.width = '0%';
+            document.querySelector('.current-time').textContent = '0:00';
+            document.querySelector('.total-time').textContent = track.duration;
+    
+            // Highlight current track in the list
+            trackRows.forEach((row, index) => {
+                row.style.color = index === currentTrackIndex ? 'var(--royal-blue)' : 'var(--text-secondary)';
+            });
+        }
+    
+        // Add keyboard controls
+        document.addEventListener('keydown', function(e) {
+            switch(e.code) {
+                case 'Space':
+                    e.preventDefault();
+                    togglePlay();
+                    break;
+                case 'ArrowRight':
+                    nextBtn.click();
+                    break;
+                case 'ArrowLeft':
+                    prevBtn.click();
+                    break;
+                case 'ArrowUp':
+                    currentVolume = Math.min(100, currentVolume + 10);
+                    document.querySelector('.volume-filled').style.width = `${currentVolume}%`;
+                    break;
+                case 'ArrowDown':
+                    currentVolume = Math.max(0, currentVolume - 10);
+                    document.querySelector('.volume-filled').style.width = `${currentVolume}%`;
+                    break;
+            }
+        });
+    
+        // Add animations
+        document.querySelector('.album-cover-large').style.transition = 'transform 0.3s ease';
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+    });
+    
+// Add this to your existing DOMContentLoaded event listener
+
+// Navigation Functions
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all navigation buttons
+    const homeBtn = document.querySelector('.nav-menu .menu-item:nth-child(1)');
+    const searchBtn = document.querySelector('.nav-menu .menu-item:nth-child(2)');
+    const libraryBtn = document.querySelector('.nav-menu .menu-item:nth-child(3)');
+    const createPlaylistBtn = document.querySelector('.playlist-item:nth-child(1)');
+    const likedSongsBtn = document.querySelector('.playlist-item:nth-child(2)');
+
+    // Navigation with animation
+    function navigateWithAnimation(url) {
+        // Add fade-out animation to current page
+        document.querySelector('.album-content').style.animation = 'fadeOut 0.3s ease-out';
+        
+        // Wait for animation to complete before navigating
+        setTimeout(() => {
+            window.location.href = url;
+        }, 300);
+    }
+
+    // Home button click
+    homeBtn.addEventListener('click', function() {
+        navigateWithAnimation('index.html');
+    });
+
+    // Search button click
+    searchBtn.addEventListener('click', function() {
+        navigateWithAnimation('search.html');
+    });
+
+    // Library button click
+    libraryBtn.addEventListener('click', function() {
+        navigateWithAnimation('library.html');
+    });
+
+    // Create Playlist click
+    createPlaylistBtn.addEventListener('click', function() {
+        navigateWithAnimation('create-playlist.html');
+    });
+
+    // Liked Songs click
+    likedSongsBtn.addEventListener('click', function() {
+        navigateWithAnimation('liked-songs.html');
+    });
+
+    // Add active state to current page
+    function setActiveMenuItem() {
+        // Remove active class from all menu items
+        document.querySelectorAll('.nav-menu .menu-item').forEach(item => {
+            item.classList.remove('active');
+        });
+
+        // Add active class based on current page
+        const currentPage = window.location.pathname.split('/').pop();
+        switch(currentPage) {
+            case 'index.html':
+                homeBtn.classList.add('active');
+                break;
+            case 'search.html':
+                searchBtn.classList.add('active');
+                break;
+            case 'library.html':
+                libraryBtn.classList.add('active');
+                break;
+        }
+    }
+
+    // Call setActiveMenuItem on page load
+    setActiveMenuItem();
+
+    // Add hover effects to menu items
+    document.querySelectorAll('.nav-menu .menu-item, .playlist-item').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.color = 'var(--text-primary)';
+            this.style.transform = 'scale(1.02)';
+        });
+
+        item.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('active')) {
+                this.style.color = 'var(--text-secondary)';
+            }
+            this.style.transform = 'scale(1)';
+        });
+
+        item.addEventListener('click', function() {
+            // Add click animation
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+        });
+    });
+});
+
+// Add these animations to your CSS
+document.head.insertAdjacentHTML('beforeend', `
+
+`);
+
+// Add this HTML for the loading indicator
+document.body.insertAdjacentHTML('beforeend', `
+<div class="loading-indicator">
+    <div class="spinner"></div>
+</div>
+<div class="page-transition"></div>
+`);
+
+// Enhanced navigation function with loading state
+function navigateWithAnimation(url) {
+    // Show loading indicator and transition overlay
+    document.querySelector('.loading-indicator').classList.add('active');
+    document.querySelector('.page-transition').classList.add('active');
+
+    // Add fade-out animation to current page
+    document.querySelector('.album-content').style.animation = 'fadeOut 0.3s ease-out';
+
+    // Save current scroll position
+    sessionStorage.setItem('scrollPosition', window.scrollY);
+
+    // Wait for animation and show loading briefly
+    setTimeout(() => {
+        // Navigate to new page
+        window.location.href = url;
+    }, 300);
+}
+
+// Restore scroll position on new page load
+window.addEventListener('load', function() {
+    const scrollPosition = sessionStorage.getItem('scrollPosition');
+    if (scrollPosition) {
+        window.scrollTo(0, parseInt(scrollPosition));
+        sessionStorage.removeItem('scrollPosition');
+    }
+
+    // Add fade-in animation to new page
+    document.querySelector('.album-content').style.animation = 'fadeIn 0.3s ease-out';
+});
+
+// Add keyboard shortcuts for navigation
+document.addEventListener('keydown', function(e) {
+    if (e.altKey) {
+        switch(e.key) {
+            case 'h':
+                navigateWithAnimation('index.html');
+                break;
+            case 's':
+                navigateWithAnimation('search.html');
+                break;
+            case 'l':
+                navigateWithAnimation('library.html');
+                break;
+        }
+    }
+});
+
+    </script>
+    
+    <!-- Add these animations to your style section -->
+    <style>
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    .track-row.playing {
+        color: var(--royal-blue) !important;
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .track-row .fa-play {
+        font-size: 14px;
+    }
+    
+    button {
+        transition: transform 0.1s ease;
+    }
+    
+    .volume-filled, .progress-filled {
+        transition: width 0.1s ease;
+    }
+    
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .nav-menu .menu-item,
+    .playlist-item {
+        transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .nav-menu .menu-item.active {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    .nav-menu .menu-item:hover,
+    .playlist-item:hover {
+        color: var(--text-primary);
+    }
+
+    /* Add loading indicator */
+    .loading-indicator {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        z-index: 1000;
+    }
+
+    .loading-indicator.active {
+        display: block;
+    }
+
+    /* Add navigation transition overlay */
+    .page-transition {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .page-transition.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    </style>
+</html>
